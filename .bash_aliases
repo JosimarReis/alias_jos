@@ -44,7 +44,17 @@ alias git_commit_push_pull_all_rebase_force='git add . && git commit -m && git p
 alias git_commit_push_pull_all_rebase_force_origin='git add . && git commit -m && git push && git pull --rebase --force origin'
 alias git_commit_push_pull_all_rebase_force_origin_master='git add . && git commit -m && git push && git pull --rebase --force origin master'
 
+#add all alias to docker commands, using intuitive names
+alias docker_stop_all='sudo docker stop $(docker ps -a -q)'
+alias docker_rm_all='sudo docker rm $(docker ps -a -q)'
+alias docker_rmi_all='sudo docker rmi $(docker images -q)'
+alias docker_rmi_all_force='sudo docker rmi $(docker images -q) -f'
+alias docker_network_create='sudo docker network create'
+alias docker_network_ls='sudo docker network ls'
+alias docker_network_inspect='sudo docker network inspect'
 
+alias docker_start_postgres='sudo docker stop airflow-postgres && sudo docker rm airflow-postgres && sudo docker run -d -t --name airflow-postgres --network bridge -v honorarios_postgres-db-volume:/var/lib/postgresql/data -p 5434:5432 postgres:13 --restart=always'
 
+alias docker_exec='sudo docker exec -it'
 
 
